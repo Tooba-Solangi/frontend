@@ -1,0 +1,63 @@
+<footer class="section-t-space" [ngClass]="footer.footer_class">
+    <div class="container-fluid-lg bg">
+        <div class="main-footer section-b-space">
+            <div class="row g-md-4 g-3">
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="footer-logo">
+                        <h4 class="text-white fw-bold">{{ 'Exclussive' | translate }}</h4>
+                        <h5 class="text-white mt-3">{{ 'Subscribe' | translate }}</h5>
+                        <p class="text-white mt-5">{{ 'Get 10% off your first order' | translate }}r</p>
+<input class="p-2" type="email" placeholder="Enter Your Email">
+                        <!-- <div>
+                            <label for="emailInput">Enter Email:</label>
+                            <input type="text" id="emailInput" [(ngModel)]="userEmail" />
+                            <button (click)="checkEmail()">Check Email</button>
+                          </div> -->
+                        <app-footer-about [data]="data"></app-footer-about>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" *ngIf="data?.footer?.footer_categories?.length" (click)="toggle('categories')">
+                    <div class="footer-title" [class.show]="active['categories']">
+                        <h4 class="text-white">{{ 'Support' | translate }}</h4>
+                    </div>
+                    <div class="footer-contain">
+                        <app-footer-categories [data]="data"></app-footer-categories>
+                    </div>
+                </div>
+                <div class="col-xl col-lg-2 col-sm-3" *ngIf="data?.footer?.useful_link?.length" (click)="toggle('useful_link')">
+                    <div class="footer-title" [class.show]="active['useful_link']">
+                        <h4 class="text-white">{{ 'Account' | translate }}</h4>
+                    </div>
+                    <div class="footer-contain">
+                        <app-footer-links [links]="data?.footer?.useful_link || []"></app-footer-links>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-sm-3" *ngIf="data?.footer?.help_center?.length" (click)="toggle('help_center')">
+                    <div class="footer-title" [class.show]="active['help_center']">
+                        <h4 class="text-white">{{ 'Help Center' | translate }}</h4>
+                    </div>
+                    <div class="footer-contain">
+                        <app-footer-links [links]="data?.footer?.help_center || []"></app-footer-links>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="footer-title contact-title">
+                        <h4 class="text-white">{{ 'download_app' | translate }}</h4>
+                        <p class="text-white mt-5
+                        ">{{ 'Save $3 with App New User Only' | translate }}</p>
+                    </div>
+                    <app-footer-contact [data]="data"></app-footer-contact>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="sub-footer section-small-space">
+            <div class="reserve" *ngIf="data?.footer?.footer_copyright">
+                <app-footer-copyright [data]="data"></app-footer-copyright>
+            </div>
+            <div class="payment">
+                <app-footer-payment-options></app-footer-payment-options>
+            </div>
+            <app-footer-social-links [data]="data" *ngIf="data?.footer?.social_media_enable"></app-footer-social-links>
+        </div> -->
+    </div>
+</footer>
